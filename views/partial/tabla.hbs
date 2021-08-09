@@ -1,0 +1,80 @@
+{{#if productos.length }}
+
+{{!-- <table>
+<thead>
+  <tr>
+    {{#each productos.[0]}}
+      <th>{{@key}}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each productos}}
+    <tr>
+      {{#each this}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</tbody>
+</table> --}}
+
+{{!-- <table>
+    <thead>
+    <tr>
+        {{#each productos.[0]}}
+        <th>{{@key}}</th>
+        {{/each}}
+    </tr>
+    </thead>
+    <tbody> 
+        <tr>
+              <th>Titulo</th>
+              {{#each productos}} 
+                <td>{{this.title}}</td>
+              {{/each}} 
+       </tr>
+       <tr>
+              <th>Precio</th>
+              {{#each productos}} 
+                <td>{{this.precio}}</td>
+              {{/each}} 
+       </tr>
+       <tr>
+              <th>Thumbnail</th>
+              {{#each productos}} 
+                <td>{{this.thumbnail}}</td>
+              {{/each}} 
+       </tr>
+    </tbody> 
+</table>  --}}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Producto</td>
+            <td>Precio</td>
+            <td>Thumbnail</td>
+        </tr>
+    </thead>
+    <tbody>
+        <div>
+            {{#each productos}}
+            <tr>
+
+                <td>{{this.title}}</td>
+                <td>{{this.precio}}</td>
+                <td><img style="width: 100px" src="{{this.thumbnail}}"></img>
+                </td>
+            </tr>
+            {{/each}}
+        </div>
+    </tbody>
+</table>
+
+{{else}}
+<p>No hay productos</p>
+{{/if}}
+
+
+

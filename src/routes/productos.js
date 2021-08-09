@@ -1,9 +1,7 @@
 import express from 'express';
 import Products from '../class.js';
-import multer from 'multer';
 
 const router = express.Router();
-const upload = multer({ dest: './uploads' });  
 
 let products = new Products()
 
@@ -27,5 +25,13 @@ router.put('/actualizar/:id', (request, response) => {
 router.delete('/borrar/:id', (request, response) => {
     response.json(products.borrar(request.params.id));
   });  
+
+router.get('/vista', (request, response) => {
+    //let productsRender = products.getProducts(); 
+    const datosDinamicos = { 
+      productos: products.getProducts()
+    } 
+    response.render('main', datosDinamicos);
+});   
 
 export default router;
