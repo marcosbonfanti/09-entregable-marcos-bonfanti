@@ -30,7 +30,8 @@ router.get('/vista', (request, response) => {
     //let productsRender = products.getProducts(); 
     const datosDinamicos = { 
       productos: products.getProducts()
-    } 
+    }
+    console.log(datosDinamicos);
     response.render('main', datosDinamicos);
 });   
 
