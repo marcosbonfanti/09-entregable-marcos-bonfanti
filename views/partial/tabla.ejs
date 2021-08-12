@@ -1,0 +1,21 @@
+
+<table>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col"> Thumbnail</th>
+    </tr>
+    <% productos.forEach(producto=> { %>
+      <tr>
+        <td scope="row">
+          <%= producto.title %>
+        </td>
+        <td scope="row">
+          <%= producto.precio %>
+        </td>
+        <td scope="row">
+          <img style="width: 100px" src=<%= producto.thumbnail %>></img>
+        </td>
+      </tr>
+      <% }) %>
+  </table>

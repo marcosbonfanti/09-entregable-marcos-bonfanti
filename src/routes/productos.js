@@ -32,7 +32,7 @@ router.get('/vista', (request, response) => {
       productos: products.getProducts()
     }  
     console.log(datosDinamicos);
-    response.render('tablaProductos', datosDinamicos);
+    response.render('main', datosDinamicos);
 });   
 
 export default router;

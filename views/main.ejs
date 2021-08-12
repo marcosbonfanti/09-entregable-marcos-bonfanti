@@ -1,0 +1,20 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entregable 11 - EJS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Lista de Productos</h1>
+  <% if (productos.length> 0) { %>
+    <%- include('./partial/tabla.ejs') %>
+      <% } else {%>
+        <p>No hay datos</p>
+        <% } %>  
+
+</body>
+
+</html>

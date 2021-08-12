@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/marcovicch/08-entregable-marcos-bonfanti#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "multer": "^1.4.2",
