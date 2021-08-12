@@ -19,28 +19,12 @@ server.on('error', (err) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const layoutFolderPath = path.resolve(__dirname, '../views/layouts');
-const defaultLayerPath = path.resolve(__dirname, '../views/layouts/index.hbs');
-const partialFolderPath = path.resolve(__dirname, '../views/partial');
-app.set('view engine', 'hbs');
-
-app.engine(
-  'hbs',
-  handlebars({
-    layoutsDir: layoutFolderPath,
-    partialsDir: partialFolderPath,
-    defaultLayout: defaultLayerPath,
-    extname: 'hbs',
-  })
-);
+app.set('view engine', 'pug');
+const viewsPath = path.resolve(__dirname, '../views');
+app.set('views', viewsPath);
 
 app.use('/api/productos', routerProductos);
 
 const publicPath = path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
-
-// app.get('/vista', (request, response) => {
-//   let products = [];
-//   response.render('main', products);
-// });   
 

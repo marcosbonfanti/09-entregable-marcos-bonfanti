@@ -28,11 +28,11 @@ router.delete('/borrar/:id', (request, response) => {
 
 router.get('/vista', (request, response) => {
     //let productsRender = products.getProducts(); 
-    const datosDinamicos = { 
+    const datosDinamicos = {
       productos: products.getProducts()
-    }
+    }  
     console.log(datosDinamicos);
-    response.render('main', datosDinamicos);
+    response.render('tablaProductos', datosDinamicos);
 });   
 
 export default router;
