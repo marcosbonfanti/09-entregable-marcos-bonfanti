@@ -1,15 +1,12 @@
-{{#if productos.length }}
-
-<table class="table table-striped">
+<table id="miTabla">
     <thead>
         <tr>
             <td>Producto</td>
             <td>Precio</td>
             <td>Thumbnail</td>
         </tr>
-    </thead>
+    </thead>        
     <tbody>
-        <div>
             {{#each productos}}
             <tr>
 
@@ -19,13 +16,5 @@
                 </td>
             </tr>
             {{/each}}
-        </div>
     </tbody>
 </table>
-
-{{else}}
-<p>No hay productos</p>
-{{/if}}
-
-
-
