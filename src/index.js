@@ -3,7 +3,7 @@ import path from 'path';
 import routerProductos from './routes/productos.js';
 import handlebars from 'express-handlebars';
 import * as http from 'http';
-import io from 'socket.io';
+import { initWSServer } from './services/socket.js';
 
 
 const puerto = 8080;
@@ -11,7 +11,7 @@ const puerto = 8080;
 const app = express();
 
 const myServer = http.Server(app);
-
+initWSServer(myServer);
 myServer.listen(puerto, () => console.log('Server up en puerto', puerto));
 
 app.use(express.json());
@@ -46,26 +46,6 @@ app.get('/', (req, res) => {
   res.render('main', datosDinamicos);
 });
 
-const myWSServer = io(myServer);
 
-myWSServer.on('connection', function (socket) {
-  console.log('\n\nUn cliente se ha conectado');
-  console.log(`ID DEL SOCKET DEL CLIENTE => ${socket.client.id}`);
-  console.log(`ID DEL SOCKET DEL SERVER => ${socket.id}`);
-
-  socket.on('new-message', function (data) {
-    console.log(data); 
-    products.push(data); 
-
-    //PARA ENVIARLE EL MENSAJE A TODOS
-    myWSServer.emit('products', products);
-
-  });
-
-  socket.on('askData', (data) => {
-    console.log('ME LLEGO DATA');
-    socket.emit('products', products);
-  });  
-});
 
 
